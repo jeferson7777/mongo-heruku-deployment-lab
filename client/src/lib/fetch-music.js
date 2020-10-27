@@ -1,10 +1,11 @@
+const { REACT_APP_SERVER_URL } = process.env;
 export const getAllMusic = async () => {
-  const response = await fetch('http://localhost:5000/music');
+  const response = await fetch(`${REACT_APP_SERVER_URL}/music`);
   return await response.json();
 };
 
 export const createMusic = async ({ title, artist }) => {
-  const response = await fetch('http://localhost:5000/music', {
+  const response = await fetch(`${REACT_APP_SERVER_URL}/music`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
